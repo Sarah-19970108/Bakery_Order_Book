@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en-IE">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Proofbook puts every bakery order, from phone, email, Instagram, WhatsApp and walk-in, in one list, with allergies you can't miss.">
+<title>Proofbook · every order in one list</title>
+<style>
+:root{--bg:#fafaf7;--card:#fff;--ink:#1f2a2e;--muted:#4f5b5f;--line:#d6d1c3;--brand:#1f5a54;--brandd:#16403c;--accent:#f1d27a;--red:#b3261e;--tint:#eef4f1;--fs:100%}
+*,*::before,*::after{box-sizing:border-box}
+html{font-size:var(--fs);scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.7 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:.01em}
+h1,h2,h3{line-height:1.25;margin:0 0 .5em}
+h1{font-size:2rem}h2{font-size:1.5rem}h3{font-size:1.1rem}
+p{margin:0 0 1em;max-width:60ch}
+a{color:var(--brand)}
+:focus-visible{outline:3px solid #e0a800;outline-offset:3px}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+section{padding:44px 0}
+.alt{background:var(--tint)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--accent);padding:10px 14px;border-radius:6px;z-index:9}
+.skip:focus{left:8px}
+.top{background:var(--brand);color:#fff}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-top:12px;padding-bottom:12px}
+.logo{font-weight:700;font-size:1.15rem}
+.top button{font:inherit;font-size:.85rem;min-height:44px;padding:6px 12px;border-radius:6px;border:1px solid #fff;background:transparent;color:#fff;cursor:pointer}
+.top button[aria-pressed="true"]{background:#fff;color:var(--brandd)}
+.scallop{height:12px;background:radial-gradient(circle at 10px -1px,var(--brand) 10px,transparent 11px) 0 0/20px 12px repeat-x}
+.btn{display:flex;justify-content:center;align-items:center;width:100%;min-height:56px;padding:12px 22px;border-radius:10px;border:2px solid var(--brand);background:var(--brand);color:#fff;font:600 1.05rem system-ui,sans-serif;text-decoration:none;cursor:pointer;text-align:center}
+.btn:hover{background:var(--brandd)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.ghost:hover{background:var(--tint)}
+.stack{display:grid;gap:12px;margin-top:8px}
+.eyebrow{font-weight:600;color:var(--brand);margin-bottom:.3em}
+.lead{font-size:1.15rem}
+.mock{margin-top:28px;background:var(--card);border:1px solid var(--line);border-left:8px solid var(--brand);border-radius:10px;overflow:hidden;box-shadow:0 3px 0 var(--accent)}
+.mock .h{padding:12px 14px 2px;display:flex;flex-wrap:wrap;gap:6px;justify-content:space-between}
+.tag{font-size:.8rem;border-radius:99px;padding:2px 10px;background:var(--brand);color:#fff;font-weight:700}
+.tag.o{background:var(--tint);color:var(--ink);border:1px solid var(--line);font-weight:500}
+.mock .al{background:var(--red);color:#fff;padding:10px 14px;font-weight:800;margin-top:8px}
+.mock .al small{display:block;font-weight:500}
+.mock p{padding:10px 14px 0;margin:0;font-size:.95rem}
+.mock .cap{font-size:.8rem;color:var(--muted);padding:6px 14px 12px}
+.quotes{display:grid;gap:14px;margin:20px 0}
+blockquote{margin:0;background:var(--card);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:8px;padding:16px 18px;font-size:1.05rem}
+.note{font-size:.85rem;color:var(--muted)}
+.steps{display:grid;gap:16px;margin-top:20px;padding:0;list-style:none}
+.steps li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+.num{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--accent);font-weight:700;margin-bottom:8px}
+.steps p{margin:0}
+.price{background:var(--card);border:2px solid var(--brand);border-radius:12px;padding:24px;text-align:center}
+.price .amt{font-size:2.6rem;font-weight:700;line-height:1.1;margin:0 auto 0}
+.price .amt span{font-size:1rem;font-weight:500}
+.price ul{list-style:none;padding:0;margin:14px 0 0;text-align:left}
+.price li{padding:6px 0 6px 28px;position:relative}
+.price li::before{content:"✓";position:absolute;left:4px;color:var(--brand);font-weight:700}
+form{display:grid;gap:12px;margin-top:14px}
+label{font-weight:600}
+input[type=email]{width:100%;min-height:56px;padding:12px 14px;font:inherit;border:2px solid var(--ink);border-radius:10px;background:#fff;color:var(--ink)}
+.thanks{display:none;background:var(--card);border:2px solid var(--brand);border-radius:12px;padding:20px;font-weight:600}
+footer{padding:24px 0 40px;font-size:.85rem;color:var(--muted)}
+footer p{max-width:none}
+@media(min-width:720px){
+ h1{font-size:2.8rem}h2{font-size:1.9rem}section{padding:64px 0}
+ .stack{grid-template-columns:repeat(2,minmax(0,260px))}
+ .steps{grid-template-columns:repeat(3,1fr)}
+ .quotes{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="wrap">
+  <span class="logo">🥐 Proofbook</span>
+  <button type="button" id="big" aria-pressed="false">Larger text</button>
+</div></header>
+<div class="scallop" aria-hidden="true"></div>
+
+<main id="main">
+<section>
+  <div class="wrap">
+    <p class="eyebrow">For small bakeries and cafes</p>
+    <h1>Every order in one list, and no allergy ever missed.</h1>
+    <p class="lead">Phone, email, Instagram, WhatsApp and walk-in orders all land in one place, so nothing gets lost between the counter and the oven.</p>
+    <div class="stack">
+      <a class="btn" href="app.html">Try the demo</a>
+      <a class="btn ghost" href="#waitlist">Join the waiting list</a>
+    </div>
+    <div class="mock" aria-label="Example order card">
+      <div class="h"><b>Family Walsh</b><span><span class="tag">Funeral</span> <span class="tag o">via Phone</span></span></div>
+      <p>Needed tomorrow, 9:00</p>
+      <div class="al">ALLERGY: Tree nuts, Peanuts<small>No nuts anywhere, including shared trays</small></div>
+      <p>Sandwich and scone platters for 60</p>
+      <div class="cap">Sample card from the demo. Names are invented.</div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>Sound familiar?</h2>
+    <div class="quotes">
+      <blockquote>“Half the orders are in the diary, half are in WhatsApp, and one is on a sticky note.”</blockquote>
+      <blockquote>“Someone took the order on the phone. Nobody told the kitchen about the nut allergy.”</blockquote>
+      <blockquote>“A funeral order for tomorrow looks exactly like a cake for next week.”</blockquote>
+    </div>
+    <p class="note">Written for illustration, based on common bakery problems. They are not real customer quotes.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><span class="num">1</span><h3>Add the order</h3><p>Whoever takes it fills in one short form and says how it came in: phone, email, Instagram, WhatsApp or walk-in.</p></li>
+      <li><span class="num">2</span><h3>Answer the allergy question</h3><p>It can't be skipped. The order won't save until it says “none” or names the allergen.</p></li>
+      <li><span class="num">3</span><h3>Follow it to the door</h3><p>Urgent events sit at the top. Move each order from new to baking, packed and collected.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>Simple pricing</h2>
+    <div class="price">
+      <p class="amt">€29 <span>per month</span></p>
+      <ul>
+        <li>One kitchen or shop</li>
+        <li>Every order channel in one list</li>
+        <li>Allergy banner and pre-packing check</li>
+        <li>Works offline, prints a van sheet</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="waitlist">
+  <div class="wrap">
+    <h2>Join the waiting list</h2>
+    <p>Leave your email and we'll let you know when Proofbook opens.</p>
+    <form id="wl">
+      <label for="em">Your email</label>
+      <input id="em" type="email" required autocomplete="email" placeholder="you@yourbakery.ie">
+      <button class="btn" type="submit">Join the waiting list</button>
+    </form>
+    <div class="thanks" id="ty" role="status" tabindex="-1">Thank you! You're on the list.</div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">
+  <p>Proofbook is an early prototype. The demo uses invented orders and runs entirely on your device.</p>
+</div></footer>
+
+<script>
+(function(){
+  var b=document.getElementById("big"),r=document.documentElement;
+  b.onclick=function(){var on=b.getAttribute("aria-pressed")!=="true";b.setAttribute("aria-pressed",on);r.style.setProperty("--fs",on?"125%":"100%")};
+  var f=document.getElementById("wl"),t=document.getElementById("ty");
+  f.addEventListener("submit",function(e){e.preventDefault();f.style.display="none";t.style.display="block";t.focus()});
+})();
+</script>
+</body>
+</html>
